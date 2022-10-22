@@ -36,7 +36,7 @@ void Dequeue_Rear(){
                 }
 }
 void Enqueue_Front(){
-    if(front==size)
+    if(te==size)
                 {
                     printf("Queue is full");
                 }
