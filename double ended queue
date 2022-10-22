@@ -58,7 +58,7 @@ void Enqueue_Front(){
 
 }
 void Dequeue_Front(){
-    if(front==0)
+    if(te==0)
                 {
                     printf("Queue is empty");
                 }
