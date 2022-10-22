@@ -20,7 +20,7 @@ void Enqueue_Rear(){
     
 }
 void Dequeue_Rear(){
-    if(rear==0)
+    if(te==0)
                 {
                     printf("Queue is empty");
                 }
