@@ -1,0 +1,132 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define size 5
+
+int arr[size],rear=-1,front=0,te=0,ch,n,i,x;
+void Enqueue_Rear(){
+    if(te==size)
+                {
+                    printf("Queue is full");
+                    
+                }
+                else
+                {
+                    printf("Enter a number ");
+                    scanf("%d",&n);
+                    rear=(rear+1)%size;
+                    arr[rear]=n;
+                    te++;
+                }
+    
+}
+void Dequeue_Rear(){
+    if(rear==0)
+                {
+                    printf("Queue is empty");
+                }
+                else
+                {
+                    if(rear==-1)
+                    {
+                        rear=size-1;
+                    }
+                    printf("Number Deleted From Rear End = %d",arr[rear]);
+                    rear--;
+                    te--;
+                }
+}
+void Enqueue_Front(){
+    if(front==size)
+                {
+                    printf("Queue is full");
+                }
+                else
+                {
+                    printf("Enter a number ");
+                    scanf("%d",&n);
+                    if(front==0)
+                    {
+                        front=size-1;
+                    }
+                    else
+                    {
+                        front--;
+                    }
+                    arr[front]=n;
+                    te++;
+                }
+
+}
+void Dequeue_Front(){
+    if(front==0)
+                {
+                    printf("Queue is empty");
+                }
+                else
+                {
+                    printf("Number Deleted From Front End = %d",arr[front]);
+                    front=(front+1)%size;
+                    te--;
+                }
+}
+int main()
+{
+
+    while(1)		// An infinite loop
+    {
+        printf("\nFront=%d  Rear=%d\n\n",front,rear);
+        printf("1. Add Rear\n");
+        printf("2. Delete Rear\n");
+        printf("3. Add Front\n");
+        printf("4. Delete Front\n");
+        printf("5. Display\n");
+        printf("6. Exit\n");
+        printf("Enter Choice: ");
+        scanf("%d",&ch);
+
+        switch(ch)
+        {
+            case 1:
+            Enqueue_Rear(te,arr);
+                
+                break;
+
+            case 2:
+                Dequeue_Rear();
+                break;
+
+            case 3:
+                Enqueue_Front();
+                break;
+
+            case 4:
+                Dequeue_Front();
+                break;
+
+            case 5:
+                if(te==0)
+                {
+                    printf("Queue is empty");
+                }
+                else
+                {
+                    printf("\nQueue---> ");
+                    x=front;
+                    for(i=1; i<=te; i++)
+                    {
+                        printf("%d ",arr[x]);
+                        x=(x+1)%size;
+                    }
+                }
+                break;
+
+            case 6:
+                exit(0);
+                break;
+
+            default:
+                printf("Wrong Choice");
+        }
+    }
+    
+}
